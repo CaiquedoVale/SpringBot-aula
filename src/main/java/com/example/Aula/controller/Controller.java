@@ -1,5 +1,8 @@
-package com.example.Aula;
+package com.example.Aula.controller;
 
+import com.example.Aula.repository.Repository;
+import com.example.Aula.dto.ClienteDTO;
+import com.example.Aula.entity.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

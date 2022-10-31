@@ -1,4 +1,4 @@
-package com.example.Aula;
+package com.example.Aula.dto;
 
 public class ClienteDTO {
 
