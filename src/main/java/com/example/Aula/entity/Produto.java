@@ -19,18 +19,8 @@ public class Produto
     public Produto(String nome, Double precoUnitario, Double precoTotal, Integer quantidade) {
         this.nome = nome;
         this.precoUnitario = precoUnitario;
-        Double total = precoUnitario * quantidade;
-        if(precoTotal == total)
-        {
-            System.out.println("O calculo está correto!");
-            this.precoTotal = precoTotal;
-        }
-        else
-        {
-            System.out.println("O calculo não está correto seu malandrinho, o total ja foi corrigido!");
-            this.precoTotal = total;
-        }
-//        this.quantidade = quantidade;
+        this.precoTotal = precoTotal;
+        this.quantidade = quantidade;
 
     }
 
