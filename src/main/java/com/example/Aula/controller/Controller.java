@@ -26,7 +26,7 @@ public class Controller {
         for(Produto p : cliente.getProduto())
         {
             Produto produto = new Produto(p.getNome() , p.getPrecoUnitario() , p.getPrecoTotal() , p.getQuantidade());
-            p = produto;
+            p.setPrecoTotal(produto.getPrecoTotal());
         }
         Cliente clienteSaved = repository.save(cliente);
         return clienteSaved;
