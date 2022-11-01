@@ -1,5 +1,6 @@
 package com.example.Aula.controller;
 
+import com.example.Aula.entity.Produto;
 import com.example.Aula.repository.Repository;
 import com.example.Aula.dto.ClienteDTO;
 import com.example.Aula.entity.Cliente;
@@ -22,6 +23,11 @@ public class Controller {
 
     @PostMapping
     public Cliente create(@RequestBody @Valid Cliente cliente){
+        for(Produto p : cliente.getProduto())
+        {
+            Produto produto = new Produto(p.getNome() , p.getPrecoUnitario() , p.getPrecoTotal() , p.getQuantidade());
+            p = produto;
+        }
         Cliente clienteSaved = repository.save(cliente);
         return clienteSaved;
     }
