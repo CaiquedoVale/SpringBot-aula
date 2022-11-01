@@ -32,9 +32,29 @@ public class Controller {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteClienteById(@PathVariable Long id){
-        repository.deleteById(id);
+    public String deleteClienteById(@PathVariable Long id)
+    {
+        try
+        {
+            Optional<Cliente> cliente = Optional.of(repository.getById(id));
+            if(cliente.isPresent())
+            {
+                repository.deleteById(id);
+                return "Cliente de " + id + " deletado com sucesso!";
+            }
+            else
+            {
+                throw new Exception("Cliente inexistente!");
+            }
+
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return "O cliente de " + id + " não existe no banco de dados!";
+        }
     }
+
     @GetMapping
     public List<Cliente> listClientes()
     {

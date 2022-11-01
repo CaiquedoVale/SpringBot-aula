@@ -1,12 +1,9 @@
 package com.example.Aula.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
-
 public class Cliente {
 
 
@@ -15,14 +12,16 @@ public class Cliente {
     private Long id;
     private String nome;
     private String endereco;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Produto> produto;
 
     public Cliente() {
     }
 
-    public Cliente(Long id, String nome, String endereco) {
-        this.id = id;
+    public Cliente(String nome, String endereco, List<Produto> produtos ) {
         this.nome = nome;
         this.endereco = endereco;
+        this.produto = produtos;
     }
 
     public String getEndereco() {
@@ -47,5 +46,13 @@ public class Cliente {
 
     public Long getId() {
         return id;
+    }
+
+    public List<Produto> getProduto() {
+        return produto;
+    }
+
+    public void setProduto(List<Produto> produto) {
+        this.produto = produto;
     }
 }
